@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ISS Space Station</string>
+    <string name="mapbox_access_token">pk.eyJ1IjoiZXZlcnR3IiwiYSI6ImNqcW8zenVrcDI1MGs0MnF5Yzl3dW5vaW8ifQ.khu9QcC776yMnJ8QJvaVvw</string>
+
+    <string name="menu_map">Map</string>
+    <string name="menu_list">Saved</string>
+
+</resources>
