@@ -43,13 +43,14 @@ public class MenuActivity extends AppCompatActivity {
 
     void goToFragment(Fragment pFragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.menu_fragment_container, pFragment,"");
+        transaction.replace(R.id.menu_fragment_container, pFragment, "");
         transaction.commit();
     }
 
 
     @AfterViews
     void setUpMenu() {
+        mSpaceNavigationView.showIconOnly();
         mSpaceNavigationView.addSpaceItem(new SpaceItem(getString(R.string.menu_map), R.drawable.ic_map));
         mSpaceNavigationView.addSpaceItem(new SpaceItem(getString(R.string.menu_list), R.drawable.ic_list));
         mSpaceNavigationView.setSpaceOnClickListener(new SpaceOnClickListener() {
@@ -71,5 +72,4 @@ public class MenuActivity extends AppCompatActivity {
 
         goToFragment(MapFragment_.builder().build());
     }
-
 }

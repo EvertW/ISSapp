@@ -4,5 +4,6 @@
 
     <string name="menu_map">Map</string>
     <string name="menu_list">Saved</string>
+    <string name="mapbox_style" translatable="false">mapbox://styles/evertw/cjqoa6yi40dkh2snu5cjmfehm</string>
 
 </resources>
