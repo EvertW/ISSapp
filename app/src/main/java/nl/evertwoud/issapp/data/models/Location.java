@@ -6,7 +6,7 @@ import java.io.Serializable;
 
 import androidx.room.Entity;
 
-@Entity(tableName = "locations")
+@Entity
 public class Location implements Serializable {
 
     @SerializedName("message")

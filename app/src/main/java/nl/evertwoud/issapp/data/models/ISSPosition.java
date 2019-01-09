@@ -4,6 +4,9 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
+import androidx.room.Entity;
+
+@Entity
 public class ISSPosition implements Serializable {
 
     @SerializedName("longitude")

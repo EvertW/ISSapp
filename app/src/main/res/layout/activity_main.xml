@@ -30,9 +30,9 @@
         app:inactive_item_color="@color/gray"
         app:active_item_color="@color/darkgray"
         app:active_centre_button_icon_color="@color/darkgray"
-        app:inactive_centre_button_icon_color="@color/darkgray"
+        app:inactive_centre_button_icon_color="@color/red"
         app:centre_button_color="@android:color/white"
-        app:centre_button_icon="@drawable/ic_satellite"
+        app:centre_button_icon="@drawable/ic_record"
         app:space_background_color="@android:color/white"
         android:layout_gravity="bottom"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
