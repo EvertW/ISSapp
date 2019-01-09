@@ -58,7 +58,7 @@ public class RouteListRow extends FrameLayout {
         }
     }
 
-    @Click(R.id.list_item)
+    @Click(R.id.route)
     void onItemClick(){
         if (mRoute!=null){
             RouteActivity_.intent(getContext()).mRoute(mRoute).start();

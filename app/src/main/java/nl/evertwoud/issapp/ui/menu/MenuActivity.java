@@ -11,6 +11,8 @@ import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
+import java.util.Objects;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -43,8 +45,10 @@ public class MenuActivity extends AppCompatActivity {
         switch (pItemIndex) {
             case 0:
                 goToFragment(mMapFragment);
+                Objects.requireNonNull(getSupportActionBar()).setTitle(getString(R.string.map_title));
                 break;
             case 1:
+                Objects.requireNonNull(getSupportActionBar()).setTitle(getString(R.string.map_routes));
                 goToFragment(ListFragment_.builder().build());
                 break;
         }
@@ -59,6 +63,7 @@ public class MenuActivity extends AppCompatActivity {
 
     @AfterViews
     void setUpMenu() {
+        Objects.requireNonNull(getSupportActionBar()).setTitle(getString(R.string.map_title));
         viewModel = new MenuViewModel(this);
 
         mSpaceNavigationView.showIconOnly();

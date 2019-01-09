@@ -14,7 +14,9 @@ import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.Extra;
 import org.androidannotations.annotations.ViewById;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Objects;
 
@@ -36,6 +38,14 @@ public class RouteActivity extends AppCompatActivity {
     @AfterViews
     void init() {
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+
+        long startTime = mRoute.getPoints().get(0).getTimestamp();
+
+        Calendar cal = Calendar.getInstance();
+        cal.setTimeInMillis(startTime*1000);
+
+        SimpleDateFormat df = new SimpleDateFormat("dd MMMM yyyy - HH:mm");
+        Objects.requireNonNull(getSupportActionBar()).setTitle(df.format(cal.getTime()));
         mMapView.getMapAsync(mapboxMap -> {
             mapboxMap.setStyle(getString(R.string.mapbox_style));
 
