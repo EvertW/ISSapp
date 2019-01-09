@@ -18,6 +18,7 @@ import com.mapbox.mapboxsdk.geometry.LatLng;
 import com.mapbox.mapboxsdk.maps.MapView;
 
 import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.ViewById;
 
@@ -100,7 +101,7 @@ public class MapFragment extends Fragment {
                             if (latLngRoute.isEmpty()) {
                                 CameraPosition position = new CameraPosition.Builder()
                                         .target(loc) // Sets the new camera position
-                                        .zoom(3) // Sets the zoom
+                                        .zoom(4) // Sets the zoom
                                         .build(); // Creates a CameraPosition from the builder
 
                                 mapboxMap.moveCamera(CameraUpdateFactory
@@ -143,15 +144,28 @@ public class MapFragment extends Fragment {
         mMapView.onStart();
     }
 
+    @Click(R.id.map_center)
+    void center() {
+        if (mMapView != null && prevCoord != null) {
+            mMapView.getMapAsync(mapboxMap -> {
+                CameraPosition position = new CameraPosition.Builder()
+                        .target(prevCoord)
+                        .zoom(4)
+                        .build();
+                mapboxMap.animateCamera(CameraUpdateFactory.newCameraPosition(position));
+            });
+        }
+    }
+
     @Override
     public void onResume() {
         super.onResume();
         mMapView.onResume();
-        if (mMapView!=null && prevCoord!=null){
+        if (mMapView != null && prevCoord != null) {
             mMapView.getMapAsync(mapboxMap -> {
                 CameraPosition position = new CameraPosition.Builder()
                         .target(prevCoord) // Sets the new camera position
-                        .zoom(3) // Sets the zoom
+                        .zoom(4) // Sets the zoom
                         .build(); // Creates a CameraPosition from the builder
 
                 mapboxMap.moveCamera(CameraUpdateFactory

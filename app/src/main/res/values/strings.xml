@@ -11,5 +11,6 @@
 
     <string name="map_title">ISS - Map</string>
     <string name="map_routes">ISS - Saved Routes</string>
+    <string name="button_center_text">CENTER ISS</string>
 
 </resources>

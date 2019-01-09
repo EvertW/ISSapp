@@ -59,7 +59,7 @@ public class RouteActivity extends AppCompatActivity {
 
             CameraPosition position = new CameraPosition.Builder()
                     .target(latLngRoute.get(0)) // Sets the new camera position
-                    .zoom(3) // Sets the zoom
+                    .zoom(4) // Sets the zoom
                     .build(); // Creates a CameraPosition from the builder
 
             mapboxMap.moveCamera(CameraUpdateFactory

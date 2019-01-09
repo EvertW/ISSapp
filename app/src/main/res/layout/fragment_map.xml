@@ -12,6 +12,23 @@
         mapbox:layout_constraintEnd_toEndOf="parent"
         mapbox:layout_constraintStart_toStartOf="parent"
         mapbox:layout_constraintTop_toTopOf="parent"
-        mapbox:mapbox_cameraZoom="3"
+        mapbox:mapbox_cameraZoomMin="2"
+        mapbox:mapbox_cameraZoom="4"
+        mapbox:mapbox_uiTiltGestures="false"
         mapbox:mapbox_styleUrl="@string/mapbox_style_light" />
+
+    <Button
+        android:id="@+id/map_center"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/button_background"
+        android:backgroundTint="@color/blue"
+        android:minHeight="0dp"
+        android:padding="@dimen/button_padding_vertical"
+        android:text="@string/button_center_text"
+        mapbox:layout_constraintBottom_toBottomOf="parent"
+        mapbox:layout_constraintEnd_toEndOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

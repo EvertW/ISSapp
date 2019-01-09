@@ -6,4 +6,5 @@
 
     <dimen name="list_card_radius">6dp</dimen>
     <dimen name="button_padding_horizontal">24dp</dimen>
+    <dimen name="button_padding_vertical">8dp</dimen>
 </resources>
