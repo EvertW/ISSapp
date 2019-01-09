@@ -25,6 +25,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".ui.route.RouteActivity_"
+            android:screenOrientation="portrait"
+            android:label="@string/app_name"/>
     </application>
 
 </manifest>

@@ -147,6 +147,17 @@ public class MapFragment extends Fragment {
     public void onResume() {
         super.onResume();
         mMapView.onResume();
+        if (mMapView!=null && prevCoord!=null){
+            mMapView.getMapAsync(mapboxMap -> {
+                CameraPosition position = new CameraPosition.Builder()
+                        .target(prevCoord) // Sets the new camera position
+                        .zoom(3) // Sets the zoom
+                        .build(); // Creates a CameraPosition from the builder
+
+                mapboxMap.moveCamera(CameraUpdateFactory
+                        .newCameraPosition(position));
+            });
+        }
     }
 
     @Override

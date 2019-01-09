@@ -1,6 +1,7 @@
 package nl.evertwoud.issapp.ui.menu;
 
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.luseen.spacenavigation.SpaceItem;
 import com.luseen.spacenavigation.SpaceNavigationView;
@@ -44,7 +45,6 @@ public class MenuActivity extends AppCompatActivity {
                 goToFragment(mMapFragment);
                 break;
             case 1:
-                mSpaceNavigationView.setCentreButtonColor(getColor(R.color.gray));
                 goToFragment(ListFragment_.builder().build());
                 break;
         }
@@ -68,6 +68,7 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onCentreButtonClick() {
                 if (currentFragmentIndexSelected != 0) {
+                    Toast.makeText(MenuActivity.this, getString(R.string.record_button_error), Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (mMapFragment != null) {
