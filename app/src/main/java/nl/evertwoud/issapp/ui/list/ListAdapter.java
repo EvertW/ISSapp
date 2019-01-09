@@ -19,6 +19,7 @@ public class ListAdapter extends BaseRecyclerAdapter<Route, RouteListRow> {
 
     @Override
     protected RouteListRow onCreateItemView(ViewGroup parent, int viewType) {
+        //Inflate view and set layout params to match full width
         RouteListRow row = RouteListRow_.build(context);
         RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         row.setLayoutParams(lp);
@@ -27,6 +28,7 @@ public class ListAdapter extends BaseRecyclerAdapter<Route, RouteListRow> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewWrapper<RouteListRow> holder, int position) {
+        //Bind the view holder
         holder.getView().bind(getData().get(position));
     }
 }

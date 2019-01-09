@@ -24,10 +24,12 @@ public class RouteRepo {
         return routes;
     }
 
+    //Insert a route
     public void insert(final Route bucketListItem) {
         mExecutor.execute(() -> routeRepo.addRoute(bucketListItem));
     }
 
+    //Delete a route
     public void delete(final Route bucketListItem) {
         mExecutor.execute(() -> routeRepo.deleteRoute(bucketListItem));
     }

@@ -22,6 +22,7 @@ import java.util.Objects;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import nl.evertwoud.issapp.Constants;
 import nl.evertwoud.issapp.R;
 import nl.evertwoud.issapp.data.models.Location;
 import nl.evertwoud.issapp.data.models.Route;
@@ -29,6 +30,7 @@ import nl.evertwoud.issapp.data.models.Route;
 @EActivity(R.layout.activity_route)
 public class RouteActivity extends AppCompatActivity {
 
+    //View & extra
     @ViewById(R.id.route_mapview)
     MapView mMapView;
 
@@ -37,20 +39,24 @@ public class RouteActivity extends AppCompatActivity {
 
     @AfterViews
     void init() {
+        //Set back button
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
-
+        //Get the start time
         long startTime = mRoute.getPoints().get(0).getTimestamp();
 
         Calendar cal = Calendar.getInstance();
         cal.setTimeInMillis(startTime*1000);
 
+        //Set page title to formatted date time
         SimpleDateFormat df = new SimpleDateFormat("dd MMMM yyyy - HH:mm");
         Objects.requireNonNull(getSupportActionBar()).setTitle(df.format(cal.getTime()));
+
         mMapView.getMapAsync(mapboxMap -> {
+            //Set map style
             mapboxMap.setStyle(getString(R.string.mapbox_style));
 
             List<LatLng> latLngRoute = new ArrayList<>();
-
+            //Add all positions to the list
             for (Location pos : mRoute.getPoints()) {
                 Double latitude = Double.valueOf(pos.getPosition().getLatitiude());
                 Double longitude = Double.valueOf(pos.getPosition().getLongitude());
@@ -59,16 +65,16 @@ public class RouteActivity extends AppCompatActivity {
 
             CameraPosition position = new CameraPosition.Builder()
                     .target(latLngRoute.get(0)) // Sets the new camera position
-                    .zoom(4) // Sets the zoom
+                    .zoom(Constants.MAP_ZOOM) // Sets the zoom
                     .build(); // Creates a CameraPosition from the builder
-
+            //Move line to final location
             mapboxMap.moveCamera(CameraUpdateFactory
                     .newCameraPosition(position));
-
+            //Draw Poly Lines for all locations
             PolylineOptions polylineOptions = new PolylineOptions()
                     .addAll(latLngRoute)
                     .color(ContextCompat.getColor(Objects.requireNonNull(this), R.color.blue))
-                    .width(4f);
+                    .width(Constants.MAP_LINE_WIDTH);
             mapboxMap.addPolyline(polylineOptions);
         });
     }
@@ -109,6 +115,7 @@ public class RouteActivity extends AppCompatActivity {
         mMapView.onDestroy();
     }
 
+    //Navigate back on button press
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {

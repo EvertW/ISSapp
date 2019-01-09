@@ -16,7 +16,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import nl.evertwoud.issapp.R;
 import nl.evertwoud.issapp.data.models.Route;
-import nl.evertwoud.issapp.ui.route.RouteActivity;
 import nl.evertwoud.issapp.ui.route.RouteActivity_;
 
 
@@ -43,6 +42,7 @@ public class RouteListRow extends FrameLayout {
         super(context, attrs, defStyleAttr);
     }
 
+    //Binds the item data to view
     void bind(Route item) {
         mRoute = item;
         if (item.getPoints() != null && !item.getPoints().isEmpty()) {
@@ -51,6 +51,7 @@ public class RouteListRow extends FrameLayout {
             Calendar cal = Calendar.getInstance();
             cal.setTimeInMillis(startTime*1000);
 
+            //Set date times formatted
             SimpleDateFormat df = new SimpleDateFormat("dd MMMM yyyy");
             SimpleDateFormat tf = new SimpleDateFormat("HH:mm");
             date.setText(df.format(cal.getTime()));
@@ -58,6 +59,7 @@ public class RouteListRow extends FrameLayout {
         }
     }
 
+    //Open Route activity on press button
     @Click(R.id.route)
     void onItemClick(){
         if (mRoute!=null){

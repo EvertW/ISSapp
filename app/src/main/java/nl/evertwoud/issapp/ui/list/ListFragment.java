@@ -17,9 +17,11 @@ import nl.evertwoud.issapp.ui.menu.MenuActivity;
 @EFragment(R.layout.fragment_list)
 public class ListFragment extends Fragment {
 
+    //Views
     @ViewById(R.id.list_recycler)
     RecyclerView recycler;
 
+    //Variables
     private ListAdapter listAdapter;
 
     //Swipe listener
@@ -37,14 +39,18 @@ public class ListFragment extends Fragment {
 
     @AfterViews
     void init() {
+        //initialize the adapter & assign it to the recycler
         listAdapter = new ListAdapter(getContext());
         recycler.setLayoutManager(new LinearLayoutManager(getContext()));
         recycler.setAdapter(listAdapter);
 
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleItemTouchCallback);
         itemTouchHelper.attachToRecyclerView(recycler);
-
-        ((MenuActivity) Objects.requireNonNull(getActivity())).getViewModel().getRoutes().observe(this, routes -> listAdapter.setItems(routes));
+        //Request the list items as live data
+        ((MenuActivity) Objects.requireNonNull(getActivity()))
+                .getViewModel()
+                .getRoutes()
+                .observe(this, routes -> listAdapter.setItems(routes));
     }
 
 }

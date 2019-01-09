@@ -14,6 +14,7 @@ public abstract class RouteDatabase extends RoomDatabase {
     private final static String NAME_DATABASE = "route_db";
     private static RouteDatabase sInstance;
 
+    //Returns the instance of the database
     public static RouteDatabase getInstance(Context context) {
         if (sInstance == null) {
             sInstance = Room.databaseBuilder(context, RouteDatabase.class, NAME_DATABASE).allowMainThreadQueries().build();
