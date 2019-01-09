@@ -52,7 +52,7 @@ public class RouteListRow extends FrameLayout {
             cal.setTimeInMillis(startTime*1000);
 
             SimpleDateFormat df = new SimpleDateFormat("dd MMMM yyyy");
-            SimpleDateFormat tf = new SimpleDateFormat("hh:mm");
+            SimpleDateFormat tf = new SimpleDateFormat("HH:mm");
             date.setText(df.format(cal.getTime()));
             times.setText(tf.format(cal.getTime()));
         }

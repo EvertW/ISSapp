@@ -39,7 +39,7 @@ import retrofit2.Response;
 @EFragment(R.layout.fragment_map)
 public class MapFragment extends Fragment {
 
-    private final int RELOAD_TIME = 1500;
+    private final int RELOAD_TIME = 2000;
     @ViewById(R.id.map_mapview)
     MapView mMapView;
     private List<Location> route = new ArrayList<>();

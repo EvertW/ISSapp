@@ -19,18 +19,18 @@ public class ListFragment extends Fragment {
 
     @ViewById(R.id.list_recycler)
     RecyclerView recycler;
-    ListAdapter listAdapter;
+
+    private ListAdapter listAdapter;
+
     //Swipe listener
-    ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
+    private ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
         @Override
         public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
             return false;
         }
 
         @Override
-        public void onSwiped(RecyclerView.ViewHolder viewHolder,
-                             int swipeDir) {
-            //Get the swiped item and remove it from the list
+        public void onSwiped(RecyclerView.ViewHolder viewHolder, int swipeDir) {
             ((MenuActivity) Objects.requireNonNull(getActivity())).getViewModel().delete(listAdapter.getItem(viewHolder.getAdapterPosition()));
         }
     };
