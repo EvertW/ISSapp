@@ -5,11 +5,11 @@
     <string name="menu_map">Map</string>
     <string name="menu_list">Saved</string>
     <string name="mapbox_style" translatable="false">mapbox://styles/evertw/cjqoa6yi40dkh2snu5cjmfehm</string>
-    <string name="record_button_error">Niet mogelijk in dit scherm.</string>
-    <string name="route">Bekijk Route</string>
+    <string name="record_button_error">Not possible on this screen.</string>
+    <string name="route">View Route</string>
 
 
     <string name="map_title">ISS - Map</string>
-    <string name="map_routes">ISS - Opgeslagen Routes</string>
+    <string name="map_routes">ISS - Saved Routes</string>
 
 </resources>

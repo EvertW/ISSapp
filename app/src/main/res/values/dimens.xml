@@ -3,7 +3,7 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
-    <dimen name="list_cardview_margin_vertical">16dp</dimen>
+    <dimen name="list_cardview_margin_vertical">8dp</dimen>
     <dimen name="list_cardview_margin_horizontal">16dp</dimen>
 
     <dimen name="list_card_radius">6dp</dimen>
